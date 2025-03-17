@@ -57,7 +57,12 @@ class Game:
         :type seasons: list[str]
         :returns: List of league ids
         """
-        t = objectpath.Tree(self.yhandler.get_leagues_raw(is_available=is_available, game_types=game_types, game_codes=game_codes,seasons=seasons))
+        t = objectpath.Tree(
+            self.yhandler.get_leagues_raw(
+                is_available=is_available,
+                game_types=game_types,
+                game_codes=game_codes,
+                seasons=seasons))
         ids = list(t.execute('$..league_key'))
         return ids
 
